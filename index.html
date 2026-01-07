@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>עדכוני Claude Code 🚀</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+            direction: rtl;
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 24px;
+            padding: 50px;
+            box-shadow: 0 25px 70px rgba(0,0,0,0.35);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 4px solid #667eea;
+            padding-bottom: 30px;
+        }
+
+        h1 {
+            color: #667eea;
+            font-size: 3em;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .date {
+            color: #666;
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+
+        .subtitle {
+            color: #888;
+            margin-top: 10px;
+            font-size: 1.1em;
+        }
+
+        .sources-section {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-right: 6px solid #2196f3;
+            padding: 25px 30px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+        }
+
+        .sources-section h3 {
+            color: #1976d2;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+
+        .sources-section ul {
+            padding-right: 25px;
+        }
+
+        .sources-section li {
+            margin-bottom: 10px;
+        }
+
+        .sources-section a {
+            color: #1565c0;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .sources-section a:hover {
+            color: #0d47a1;
+            text-decoration: underline;
+        }
+
+        .version {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-right: 6px solid #667eea;
+            padding: 25px 30px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .version:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.25);
+        }
+
+        .version-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .version-number {
+            color: #667eea;
+            font-size: 1.8em;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .version-date {
+            color: #666;
+            font-size: 0.9em;
+            background: rgba(102, 126, 234, 0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+
+        .version-badge {
+            font-size: 0.5em;
+            padding: 4px 12px;
+            border-radius: 20px;
+            background: #667eea;
+            color: white;
+            font-weight: normal;
+        }
+
+        .version ul {
+            padding-right: 25px;
+            margin-top: 15px;
+        }
+
+        .version li {
+            margin-bottom: 12px;
+            color: #333;
+            font-size: 1.05em;
+            line-height: 1.7;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #fff3cd 0%, #ffeaa7 100%);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            color: #856404;
+        }
+
+        .new-feature {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            border-right-color: #28a745;
+        }
+
+        .new-feature .version-number {
+            color: #28a745;
+        }
+
+        .major-update {
+            background: linear-gradient(135deg, #cfe2ff 0%, #b6d4fe 100%);
+            border-right-color: #0d6efd;
+        }
+
+        .major-update .version-number {
+            color: #0d6efd;
+        }
+
+        .breaking-change {
+            background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+            border-right-color: #dc3545;
+        }
+
+        .breaking-change .version-number {
+            color: #dc3545;
+        }
+
+        .search-box {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .search-box input {
+            width: 100%;
+            max-width: 500px;
+            padding: 15px 20px;
+            font-size: 1.1em;
+            border: 2px solid #667eea;
+            border-radius: 30px;
+            outline: none;
+            transition: all 0.3s;
+            direction: rtl;
+        }
+
+        .search-box input:focus {
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+            border-color: #764ba2;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 3px solid #eee;
+            color: #666;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #764ba2;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 15px;
+            text-align: center;
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .version-number {
+                font-size: 1.4em;
+            }
+
+            .version-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 עדכוני Claude Code</h1>
+            <p class="date">8 בינואר 2026</p>
+            <p class="subtitle">העדכונים והחידושים האחרונים</p>
+        </header>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">2.1.0</div>
+                <div class="stat-label">גרסה אחרונה</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">18+</div>
+                <div class="stat-label">עדכונים מוצגים</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">75+</div>
+                <div class="stat-label">תכונות חדשות</div>
+            </div>
+        </div>
+
+        <div class="sources-section">
+            <h3>📚 מקורות מידע</h3>
+            <ul>
+                <li><a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md" target="_blank">CHANGELOG הרשמי של Claude Code</a></li>
+                <li><a href="https://github.com/anthropics/claude-code/releases" target="_blank">דפי השחרורים ב-GitHub</a></li>
+                <li><a href="https://docs.claude.com/en/release-notes/claude-code" target="_blank">תיעוד Claude Code</a></li>
+                <li><a href="https://claudelog.com/claude-code-changelog/" target="_blank">ClaudeLog - מעקב אחר עדכונים</a></li>
+            </ul>
+        </div>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="🔍 חיפוש בעדכונים..." onkeyup="filterVersions()">
+        </div>
+
+        <main id="versions">
+            <div class="version major-update">
+                <div class="version-header">
+                    <h2 class="version-number">גרסה 2.1.0 <span class="version-badge">החדשה ביותר</span></h2>
+                    <span class="version-date">ינואר 2026</span>
+                </div>
+                <ul>
+                    <li>טעינה אוטומטית של <span class="highlight">Skills</span> עם תמיכה ב-hot-reload</li>
+                    <li>תמיכה בהקשר מחולק ל-sub-agents מפוצלים</li>
+                    <li>הגדרות תצורת שפה חדשות</li>
+                    <li>שיפור תאימות טרמינל עבור <span class="highlight">Shift+Enter</span> ב-iTerm2, WezTerm, Ghosty ו-Kitty</li>
+                    <li>שיפורי אבטחה: תיקון חשיפה של נתונים רגישים בלוגי debug כולל <span class="highlight">OAuth tokens</span> ו-API keys</li>
+                    <li>תבניות wildcard להרשאות <span class="highlight">Bash</span></li>
+                    <li>התראות <span class="highlight">MCP list_changed</span> לעדכוני כלים דינמיים</li>
+                </ul>
+            </div>
+
+            <div class="version">
+                <div class="version-header">
+                    <h2 class="version-number">גרסה 2.0.76</h2>
+                    <span class="version-date">ינואר 2026</span>
+                </div>
+                <ul>
+                    <li>תיקון אזהרת חתימת קוד ב-macOS עבור אינטגרציה עם Chrome</li>
+                </ul>
+            </div>
+
+            <div class="version">
+                <div class="version-header">
+                    <h2 class="version-number">גרסה 2.0.75</h2>
+                    <span class="version-date">דצמבר 2025</span>
+                </div>
+                <ul>
+                    <li>תיקוני באגים קלים</li>
+                </ul>
+            </div>
+
+            <div class="version new-feature">
+                <div class="version-header">
+                    <h2 class="version-number">גרסה 2.0.74</h2>
+                    <span class="version-date">דצמבר 2025</span>
+                </div>
+                <ul>
+                    <li>הצגת כלי <span class="highlight">LSP</span> (Language Server Protocol) עם תכונות אינטליגנציה לקוד</li>
+                    <li>תמיכה בהתקנת טרמינל עבור <span class="highlight">Kitty</span>, <span class="highlight">Alacritty</span>, <span class="highlight">Zed</span> ו-<span class="highlight">Warp</span></li>
+                    <li>תיקוני אבטחה: הרשאות <span class="highlight">allowed-tools</span> של Skills לא הוחלו נכון</li>
+                </ul>
+            </div>
+
+            <div class="version new-feature">
+                <div class="version-header">
+                    <h2 class="version-number">גרסה 2.0.73</h2>
+                    <span class="version-date">דצמבר 2025</span>
+                </div>
+                <ul>
+                    <li>קישורי התייחסות לתמונות הניתנים ללחיצה</li>
+                    <li>פונקציונליות <span class="highlight">alt-y yank-pop</span></li>
+                    <li>סינון חיפוש לגילוי תוספים</li>
+                    <li>תיקון מחזור היסטוריית קלט איטי ותנאי מרוץ</li>
+                </ul>
+            </div>
+
+            <div class="version major-update">
+                <div class="version-header">
+                    <h2 class="version-number">גרסה 2.0.72</h2>
+                    <span class="version-date">דצמבר 2025</span>
+                </div>
+                <ul>
+                    <li>הצגת <span class="highlight">Claude in Chrome</span> (Beta) - שליטה ישירה בדפדפן</li>
+                    <li>הפחתת הבהוב טרמינל</li>
+                    <li>שיפור מהירות הצעות קבצים ב-@ בכ-3 פעמים במאגרים</li>
+                </ul>
+            </div>
+
+            <div class="version new-feature">
+                <div class="version-header">
+                    <h2 class="version-number">גרסה 2.0.71</h2>
+                    <span class="version-date">דצמבר 2025</span>
+                </div>
+                <ul>
+                    <li>הוספת <span class="highlight">/config toggle</span> להצעות prompt</li>
+                    <li>תיקון הפעלה שגויה של התייחסויות @ לקבצים באמצע נתיב</li>
+                    <li>תיקון כישלון טעינת שרתי MCP עם דילוג הרשאות מופעל</li>
+                </ul>
+            </div>
+
+            <div class="version">
+                <div class="version-header">
+                    <h2 class="version-number">גרסה 2.0.70</h2>
+                    <span class="version-date">דצמבר 2025</span>
+                </div>
+                <ul>
+                    <li>מקש <span class="highlight">Enter</span> מגיש כעת הצעות prompt ישירות</li>
+                    <li>תחביר <span class="highlight">wildcard mcp__server__*</span> מאפשר הרשאות כלי MCP בכמות גדולה</li>
+                    <li>שיפור התאמת הצעות קבצים</li>
+                    <li>פתרון בעיות שימוש בזיכרון</li>
+                </ul>
+            </div>
+
+            <div class="version">
+                <div class="version-header">
+                    <h2 class="version-number">גרסה 2.0.69</h2>
+                    <span class="version-date">דצמבר 2025</span>
+                </div>
+                <ul>
+                    <li>תיקוני באגים קלים</li>
+                </ul>
+            </div>
+
+            <div class="version">
+                <div class="version-header">
+                    <h2 class="version-number">גרסה 2.0.68</h2>
+                    <span class="version-date">נובמבר 2025</span>
+                </div>
+                <ul>
+                    <li>תיקון תמיכה ב-<span class="highlight">IME</span> לקלט סינית, יפנית וקוריאנית</li>
+                    <li>תיקון באגים עם נראות כלי MCP לא מורשים ואובדן הודעות steering במהלך עבודת subagent</li>
+                </ul>
+            </div>
+
+            <div class="version new-feature">
+                <div class="version-header">
+                    <h2 class="version-number">גרסה 2.0.67</h2>
+                    <span class="version-date">נובמבר 2025</span>
+                </div>
+                <ul>
+                    <li>מצב <span class="highlight">Thinking</span> כעת מופעל כברירת מחדל עבור <span class="highlight">Opus 4.5</span></li>
+                    <li>פונקציונליות חיפוש לפקודה <span class="highlight">/permissions</span></li>
+                    <li>תיקון התייחסויות @~/ רצופות לקבצים שמתנתחות באופן שגוי</li>
+                </ul>
+            </div>
+
+            <div class="version new-feature">
+                <div class="version-header">
+                    <h2 class="version-number">גרסה 2.0.65</h2>
+                    <span class="version-date">נובמבר 2025</span>
+                </div>
+                <ul>
+                    <li>החלפת מודל בזמן כתיבת prompts (<span class="highlight">Alt+P</span> ב-Linux/Windows, <span class="highlight">Option+P</span> ב-macOS)</li>
+                    <li>מידע על חלון הקשר מוצג בשורת המצב</li>
+                    <li>הגדרה חדשה <span class="highlight">fileSuggestion</span> לחיפושי קבצים מותאמים אישית עם @</li>
+                </ul>
+            </div>
+
+            <div class="version major-update">
+                <div class="version-header">
+                    <h2 class="version-number">גרסה 2.0.64</h2>
+                    <span class="version-date">נובמבר 2025</span>
+                </div>
+                <ul>
+                    <li>דחיסה אוטומטית הפכה למיידית</li>
+                    <li>Agents ופקודות bash פועלות כעת באופן אסינכרוני</li>
+                    <li><span class="highlight">/stats</span> מספק מדדי שימוש כולל מודל מועדף ורצפי שימוש</li>
+                    <li>תמיכה בסשנים עם שם דרך <span class="highlight">/rename</span> ו-<span class="highlight">--resume &lt;name&gt;</span></li>
+                </ul>
+            </div>
+
+            <div class="version">
+                <div class="version-header">
+                    <h2 class="version-number">גרסה 2.0.62</h2>
+                    <span class="version-date">נובמבר 2025</span>
+                </div>
+                <ul>
+                    <li>אינדיקטורים <span class="highlight">"(Recommended)"</span> לשאלות רב-ברירה</li>
+                    <li>הגדרה חדשה <span class="highlight">attribution</span> להתאמה אישית של ייחוסי commit ו-PR</li>
+                    <li>תיקון פקודות slash כפולות ובעיות עם ספריות skill מקושרות</li>
+                </ul>
+            </div>
+
+            <div class="version breaking-change">
+                <div class="version-header">
+                    <h2 class="version-number">גרסה 2.0.61</h2>
+                    <span class="version-date">נובמבר 2025</span>
+                </div>
+                <ul>
+                    <li>ביטול תמיכה ב-VSCode עבור מספר לקוחות טרמינל בשל בעיות היענות</li>
+                </ul>
+            </div>
+
+            <div class="version new-feature">
+                <div class="version-header">
+                    <h2 class="version-number">גרסה 2.0.60</h2>
+                    <span class="version-date">נובמבר 2025</span>
+                </div>
+                <ul>
+                    <li>הצגת תמיכה ב-<span class="highlight">background agent</span></li>
+                    <li>דגל <span class="highlight">--disable-slash-commands</span> חדש</li>
+                    <li>החלפה מהירה של שרת MCP דרך תחביר <span class="highlight">"/mcp enable [server-name]"</span></li>
+                </ul>
+            </div>
+
+            <div class="version new-feature">
+                <div class="version-header">
+                    <h2 class="version-number">גרסה 2.0.59</h2>
+                    <span class="version-date">נובמבר 2025</span>
+                </div>
+                <ul>
+                    <li>דגל CLI <span class="highlight">--agent</span> והגדרה <span class="highlight">agent</span> לתצורת התנהגות thread ראשי</li>
+                </ul>
+            </div>
+
+            <div class="version major-update">
+                <div class="version-header">
+                    <h2 class="version-number">גרסה 2.0.58</h2>
+                    <span class="version-date">נובמבר 2025</span>
+                </div>
+                <ul>
+                    <li>משתמשי <span class="highlight">Pro</span> מקבלים כעת גישה ל-<span class="highlight">Opus 4.5</span></li>
+                    <li>תיקון תצוגת משך טיימר (למשל "11m 60s" תוקן)</li>
+                </ul>
+            </div>
+        </main>
+
+        <footer>
+            <p>💜 נוצר באהבה על ידי Claude Code</p>
+            <p>
+                <a href="https://github.com/anthropics/claude-code" target="_blank">GitHub</a> |
+                <a href="https://docs.claude.com/" target="_blank">תיעוד</a> |
+                <a href="https://support.claude.com/" target="_blank">תמיכה</a>
+            </p>
+            <p style="margin-top: 20px; font-size: 0.9em; color: #999;">
+                עודכן לאחרונה: 8 בינואר 2026
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        function filterVersions() {
+            const searchTerm = document.getElementById('searchInput').value;
+            const versions = document.querySelectorAll('.version');
+
+            versions.forEach(version => {
+                const text = version.textContent;
+                if (text.includes(searchTerm) || searchTerm === '') {
+                    version.style.display = 'block';
+                } else {
+                    version.style.display = 'none';
+                }
+            });
+        }
+
+        // הוספת אנימציות כניסה
+        window.addEventListener('load', () => {
+            const versions = document.querySelectorAll('.version');
+            versions.forEach((version, index) => {
+                setTimeout(() => {
+                    version.style.opacity = '0';
+                    version.style.transform = 'translateY(20px)';
+                    version.style.transition = 'all 0.5s ease';
+
+                    setTimeout(() => {
+                        version.style.opacity = '1';
+                        version.style.transform = 'translateY(0)';
+                    }, 50);
+                }, index * 50);
+            });
+        });
+    </script>
+</body>
+</html>
